@@ -1,6 +1,6 @@
 {
   "name": "zul-challenge",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Zul Digital code challenge",
   "main": "index.js",
   "scripts": {
