@@ -80,7 +80,7 @@ function getRandomTweet(tweets){
 function splitAndFormatAndPrintTweet(tweet){
     let tweetSplitter = new TweetSplitter(TWEET_MAX_SIZE);
     tweetSplitter.split(tweet).forEach( (miniTweet, index) => {
-        console.log("Tweet #" + index + ": " + miniTweet);
+        console.log("Tweet #" + (index + 1) + ": " + miniTweet);
     });
 }
 
