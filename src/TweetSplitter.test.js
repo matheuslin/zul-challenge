@@ -1,8 +1,8 @@
 var TweetSplitter = require('./TweetSplitter.js');
 
-function verifyBySize(result, size){
+function expectAllLengthsToBeSmallerThanLimit(result, limit){
     result.forEach(element => {
-        expect(element.length).toBeLessThanOrEqual(size);
+        expect(element.length).toBeLessThanOrEqual(limit);
     });
 }
 
@@ -47,20 +47,22 @@ describe('TweetSplitter', () => {
         ];
     
         expect(result).toEqual(expected);
-        verifyBySize(result, limitSize);
+        expectAllLengthsToBeSmallerThanLimit(result, limitSize);
     });
 
-    test('Message with long words', () => {
+    test('Long words should be broken in smaller segments', () => {
         var input = "A long word is a word too long to fit in a message.";
         var limitSize = 7;
         var splitter = new TweetSplitter(limitSize);
         var result = splitter.split(input);
 
-        verifyBySize(result, limitSize);
+        expectAllLengthsToBeSmallerThanLimit(result, limitSize);
     });
 
     test('Longest word in pt-BR', () => {
-        var input = "Aquele que sofre de Pneumoultramicroscopicossilicovulcanoconiose é chamado de Pneumoultramicroscopicossilicovulcanoconiotico e deve ser tratado.";
+        var input = "Aquele que sofre de \
+        Pneumoultramicroscopicossilicovulcanoconiose é chamado \
+        de Pneumoultramicroscopicossilicovulcanoconiotico e deve ser tratado.";
 
         var limitSize = 45;
         var splitter = new TweetSplitter(limitSize);
@@ -73,6 +75,6 @@ describe('TweetSplitter', () => {
             "o e deve ser tratado."
         ]
         expect(result).toEqual(expected);
-        verifyBySize(result, limitSize);
+        expectAllLengthsToBeSmallerThanLimit(result, limitSize);
     });
 });

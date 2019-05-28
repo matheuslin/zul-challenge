@@ -2,9 +2,9 @@
   "name": "zul-challenge",
   "version": "0.1.0",
   "description": "Zul Digital code challenge",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/main.js",
     "test": "jest"
   },
   "keywords": [
@@ -15,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
   }
 }
