@@ -1,12 +1,5 @@
 var TweetSplitter = require('./TweetSplitter.js');
 
-function verifyByExpectedValues(result, expected){
-    expect(result.length).toBe(expected.length);
-    for(var i = 0; i < expected.length; i++){
-        expect(result[i]).toBe(expected[i]);
-    }
-}
-
 function verifyBySize(result, size){
     result.forEach(element => {
         expect(element.length).toBeLessThanOrEqual(size);
@@ -23,7 +16,7 @@ describe('TweetSplitter', () => {
         
             var expected = [input];
         
-            verifyByExpectedValues(result, expected)
+            expect(result).toEqual(expected);
         });
         
         test('Splitting message with more than limit must return more messages', () => {
@@ -38,7 +31,7 @@ describe('TweetSplitter', () => {
                 "size."
             ];
         
-            verifyByExpectedValues(result, expected);
+            expect(result).toEqual(expected);
         });
     })
     
@@ -53,7 +46,7 @@ describe('TweetSplitter', () => {
             "many spaces in a row"
         ];
     
-        verifyByExpectedValues(result, expected);
+        expect(result).toEqual(expected);
         verifyBySize(result, limitSize);
     });
 
@@ -79,7 +72,7 @@ describe('TweetSplitter', () => {
             "Pneumoultramicroscopicossilicovulcanoconiotic",
             "o e deve ser tratado."
         ]
-        verifyByExpectedValues(result, expected);
+        expect(result).toEqual(expected);
         verifyBySize(result, limitSize);
     });
 });
