@@ -11,8 +11,6 @@ let TIMELINE_PATH = "/statuses/home_timeline.json";
 
 let TWEET_MAX_SIZE = 45;
 
-main();
-
 async function main() {
 
     // get token
@@ -20,14 +18,14 @@ async function main() {
 
     if(jwtJson == null){
         console.log("Failed to fetch JWT...");
-        return 1;
+        return;
     }
 
     // get tweets using the received JWT
     let tweets = await getTweets(jwtJson.token);
     if(tweets == null){
         console.log("Failed to fetch Tweets...");
-        return 1;
+        return;
     }
 
     // get random tweet from tweets
@@ -44,7 +42,7 @@ async function getToken(){
         }
     )
     .then(res => {
-        if(res.status != 200) {
+        if(res.status !== 200) {
             console.error(res);
             return Promise.reject();
         }
@@ -63,7 +61,7 @@ async function getTweets(jwt){
         }
     )
     .then(res => {
-        if(res.status != 200) {
+        if(res.status !== 200) {
             console.error(res);
             return Promise.reject();
         }
@@ -84,6 +82,4 @@ function splitAndFormatAndPrintTweet(tweet){
     });
 }
 
-
-
-
+main();
