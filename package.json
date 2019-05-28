@@ -1,0 +1,19 @@
+{
+  "name": "zul-challenge",
+  "version": "0.0.0",
+  "description": "Zul Digital code challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "zul",
+    "challenge"
+  ],
+  "author": "Matheus Alvarenga",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
