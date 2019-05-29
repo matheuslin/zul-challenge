@@ -13,9 +13,7 @@ let TWEET_MAX_SIZE = 45;
 
 async function main() {
 
-    // get token
     let jwtJson = await getToken();
-
     if(jwtJson == null){
         console.log("Failed to fetch JWT...");
         return;
@@ -31,7 +29,7 @@ async function main() {
     // get random tweet from tweets
     let tweet = getRandomTweet(tweets);
 
-    // split tweet according to size limit and print to stdout
+    // split tweet according to size limit, format and print to stdout
     splitAndFormatAndPrintTweet(tweet);
 }
 

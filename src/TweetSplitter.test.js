@@ -1,4 +1,4 @@
-var TweetSplitter = require('./TweetSplitter.js');
+const TweetSplitter = require('./TweetSplitter.js');
 
 function expectAllLengthsToBeSmallerThanLimit(result, limit){
     result.forEach(element => {
